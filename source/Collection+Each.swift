@@ -8,47 +8,59 @@
 import Foundation
 
 extension Array {
-  func each (iterator: (T) -> Void ) {
+  func each (iterator: (T) -> Void ) -> Array {
     for item in self {
       iterator(item)
     }
+    
+    return self
   }
   
-  func eachWithIndex (iterator: (T, Int) -> Void ) {
+  func eachWithIndex (iterator: (T, Int) -> Void ) -> Array {
     var i = 0
     for item in self {
       iterator(item, i++)
     }
+    
+    return self
   }
 }
 
 extension Range {
-  func each (iterator: (T) -> Void ) {
+  func each (iterator: (T) -> Void ) -> Range{
     for item in self {
       iterator(item)
     }
+    
+    return self
   }
 }
 
 extension Dictionary {
-  func each(iterator: (KeyType,ValueType) -> Void)
+  func each(iterator: (KeyType,ValueType) -> Void) -> Dictionary
   {
     for (key, value) in self {
       iterator(key, value)
     }
+    
+    return self
   }
 }
 
 extension Int {
-  func times(iterator: () -> Void) {
+  func times(iterator: () -> Void) -> Int{
     for _ in 0..self {
       iterator()
     }
+    
+    return self
   }
   
-  func timesWithIndex(iterator: (Int) -> Void) {
+  func timesWithIndex(iterator: (Int) -> Void) -> Int{
     for i in 0..self {
       iterator(i)
     }
+    
+    return self
   }
 }

@@ -17,9 +17,8 @@ extension Array {
   }
   
   func eachWithIndex (iterator: (T, Int) -> Void ) -> Array {
-    var i = 0
-    for item in self {
-      iterator(item, i++)
+    for (index, item) in enumerate(self) {
+      iterator(item, index)
     }
     
     return self
